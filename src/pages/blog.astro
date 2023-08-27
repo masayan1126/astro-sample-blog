@@ -1,4 +1,7 @@
 ---
+import { getCollection } from "astro:content";
+
+const blogs = await getCollection("blog");
 ---
 
 <html lang="en">
@@ -15,5 +18,13 @@
     <a href="/blog/">ブログ</a>
     <h1>私のAstro学習ブログ</h1>
     <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
+    {
+      blogs.map((blog) => (
+        <div>
+          <h2>{blog.data.title}</h2>
+          <a href={blog.slug}>この記事を読む</a>
+        </div>
+      ))
+    }
   </body>
 </html>

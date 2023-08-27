@@ -1,0 +1,31 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blog");
+  return blogs.map((blog) => ({
+    params: { slug: blog.slug },
+    props: { blog },
+  }));
+}
+
+interface Props {
+  blog: CollectionEntry<"blog">;
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <Content />
+  </body>
+</html>
