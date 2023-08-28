@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
@@ -10,9 +12,11 @@
     <title>Astro</title>
   </head>
   <body>
-    <a href="/">ホーム</a>
-    <a href="/about/">概要</a>
-    <a href="/blog/">ブログ</a>
+    <Header />
     <h1>私のAstroサイト</h1>
+
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>

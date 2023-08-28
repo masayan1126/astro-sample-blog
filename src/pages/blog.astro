@@ -1,5 +1,7 @@
 ---
+import "../styles/global.css";
 import { getCollection } from "astro:content";
+import Header from "../components/Header.astro";
 
 const blogs = await getCollection("blog");
 ---
@@ -13,9 +15,7 @@ const blogs = await getCollection("blog");
     <title>Astro</title>
   </head>
   <body>
-    <a href="/">ホーム</a>
-    <a href="/about/">概要</a>
-    <a href="/blog/">ブログ</a>
+    <Header />
     <h1>私のAstro学習ブログ</h1>
     <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
     {
