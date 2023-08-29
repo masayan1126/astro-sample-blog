@@ -1,6 +1,8 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
 
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
+
 export async function getStaticPaths() {
   const blogs = await getCollection("blog");
   return blogs.map((blog) => ({
@@ -17,15 +19,6 @@ const { blog } = Astro.props;
 const { Content } = await blog.render();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Content />
-  </body>
-</html>
+<MarkdownPostLayout title={blog.data.title}>
+  <Content />
+</MarkdownPostLayout>

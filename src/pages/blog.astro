@@ -1,30 +1,22 @@
 ---
-import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import Header from "../components/Header.astro";
 
 const blogs = await getCollection("blog");
+
+const pageTitle = "私のAstro学習ブログ";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Header />
-    <h1>私のAstro学習ブログ</h1>
-    <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
-    {
-      blogs.map((blog) => (
-        <div>
-          <h2>{blog.data.title}</h2>
-          <a href={blog.slug}>この記事を読む</a>
-        </div>
-      ))
-    }
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h1>{pageTitle}</h1>
+  <h2>私の素晴らしいブログのサブタイトル</h2>
+  <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
+  {
+    blogs.map((blog) => (
+      <div>
+        <h2>{blog.data.title}</h2>
+        <a href={blog.slug}>この記事を読む</a>
+      </div>
+    ))
+  }
+</BaseLayout>
