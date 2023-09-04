@@ -6,6 +6,6 @@ image:
     url: "https://docs.astro.build/assets/rays.webp"
     alt: "Astroの光線のサムネイル。"
 pubDate: 2022-07-15
-tags: ["astro", "公開学習", "後退", "コミュニティ"]
+tags: ["astro", "learning in public", "setbacks", "community"]
 ---
 すべてがスムーズにいくわけではありませんでしたが、Astroで何かを作るのは楽しいです。そして、[Discordコミュニティ](https://astro.build/chat)は本当にフレンドリーで助けになります！
